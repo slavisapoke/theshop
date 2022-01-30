@@ -15,6 +15,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Nultien.TheShop.Impl.Repository\Nultien.TheShop.Impl.Repository.csproj" />
     <ProjectReference Include="..\Nultien.TheShop.Impl.Services\Nultien.TheShop.Impl.Services.csproj" />
+    <ProjectReference Include="..\Nultien.TheShop.ServiceInitialization\Nultien.TheShop.ServiceInitialization.csproj" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,10 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Nultien.TheShop.Interfaces.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Nultien.TheShop.Impl.Services
 {
@@ -14,6 +9,8 @@ namespace Nultien.TheShop.Impl.Services
         {
             svcCollection.AddAutoMapper(typeof(Startup));
             svcCollection.AddSingleton<IArticleService, ArticleService>();
+            svcCollection.AddSingleton<ISupplierService, SupplierService>();
+            svcCollection.AddSingleton<IShopService, ShopService>();
         }
     }
 }

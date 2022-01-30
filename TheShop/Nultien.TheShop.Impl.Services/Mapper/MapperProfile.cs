@@ -1,11 +1,6 @@
 ﻿using AutoMapper;
 using Nultien.TheShop.Common.DTO;
 using Nultien.TheShop.DataDomain;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Nultien.TheShop.Impl.Services.Mapper
 {
@@ -25,6 +20,8 @@ namespace Nultien.TheShop.Impl.Services.Mapper
 
             CreateMap<Supplier, SupplierViewModel>()
                 .ReverseMap();
+
+            CreateMap<Common.DTO.Buyer, DataDomain.Buyer>().ReverseMap();
         }
     }
 }

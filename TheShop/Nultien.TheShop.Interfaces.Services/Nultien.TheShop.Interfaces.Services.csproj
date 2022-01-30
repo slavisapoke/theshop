@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Nultien.TheShop.Common\Nultien.TheShop.Common.csproj" />
+    <ProjectReference Include="..\Nultien.TheShop.DataDomain\Nultien.TheShop.DataDomain.csproj" />
   </ItemGroup>
 
 </Project>

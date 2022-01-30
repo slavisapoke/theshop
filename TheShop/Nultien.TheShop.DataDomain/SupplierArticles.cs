@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Nultien.TheShop.Common.DTO.Enums;
 
 namespace Nultien.TheShop.DataDomain
 {
@@ -11,5 +7,6 @@ namespace Nultien.TheShop.DataDomain
         public int ID { get; set; }
         public int SupplierID { get; set; }
         public int ArticleID { get; set; }
+        public ArticleStockState State { get; set; }   
     }
 }

@@ -37,6 +37,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{141B6C
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nultien.TheShop.DataDomain", "Nultien.TheShop.DataDomain\Nultien.TheShop.DataDomain.csproj", "{6EABA92F-C66E-444A-ADA8-A230134D27B2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nultien.TheShop.ServiceInitialization", "Nultien.TheShop.ServiceInitialization\Nultien.TheShop.ServiceInitialization.csproj", "{C2C39E08-2866-45B6-BC17-D4F57DA98108}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -79,6 +81,10 @@ Global
 		{6EABA92F-C66E-444A-ADA8-A230134D27B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6EABA92F-C66E-444A-ADA8-A230134D27B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6EABA92F-C66E-444A-ADA8-A230134D27B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2C39E08-2866-45B6-BC17-D4F57DA98108}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2C39E08-2866-45B6-BC17-D4F57DA98108}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2C39E08-2866-45B6-BC17-D4F57DA98108}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2C39E08-2866-45B6-BC17-D4F57DA98108}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -99,6 +105,7 @@ Global
 		{62F75DC3-BD0C-48A8-989F-75142552E2D4} = {F86DEE96-E4E6-474F-85E6-E3AC22B9D8B4}
 		{141B6C19-BCFF-4E71-BF82-29CD69F76F54} = {0658AF17-BB7E-4D9B-8BB4-2DD8EE741F24}
 		{6EABA92F-C66E-444A-ADA8-A230134D27B2} = {141B6C19-BCFF-4E71-BF82-29CD69F76F54}
+		{C2C39E08-2866-45B6-BC17-D4F57DA98108} = {B21298D3-C002-4239-8D03-8913B07820A3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {04F451A9-8E63-446B-8539-2E3E0C17CD2C}

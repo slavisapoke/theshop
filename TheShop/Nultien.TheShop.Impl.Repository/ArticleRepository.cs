@@ -1,15 +1,18 @@
-﻿using Nultien.TheShop.DataDomain;
+﻿using Nultien.TheShop.Common.DTO;
+using Nultien.TheShop.DataDomain;
 using Nultien.TheShop.Interfaces.Repository;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Nultien.TheShop.Impl.Repository
 {
     public class ArticleRepository : IArticleRepository
     {
+        public Article Add(Article article)
+        {
+            throw new NotImplementedException();
+        }
+
         public Article GetById(int id)
         {
             return new Article
@@ -20,6 +23,11 @@ namespace Nultien.TheShop.Impl.Repository
                 Name = "Test Article",
                 Price = 1000
             };
+        }
+
+        public List<Article> Search(ArticleSearchParams filter)
+        {
+            throw new NotImplementedException();
         }
     }
 }

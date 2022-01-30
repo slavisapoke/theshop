@@ -5,14 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="6.0.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Nultien.TheShop.Common\Nultien.TheShop.Common.csproj" />
-    <ProjectReference Include="..\Nultien.TheShop.DataDomain\Nultien.TheShop.DataDomain.csproj" />
+    <ProjectReference Include="..\Nultien.TheShop.Impl.Repository\Nultien.TheShop.Impl.Repository.csproj" />
+    <ProjectReference Include="..\Nultien.TheShop.Impl.Services\Nultien.TheShop.Impl.Services.csproj" />
     <ProjectReference Include="..\Nultien.TheShop.Interfaces.Repository\Nultien.TheShop.Interfaces.Repository.csproj" />
     <ProjectReference Include="..\Nultien.TheShop.Interfaces.Services\Nultien.TheShop.Interfaces.Services.csproj" />
   </ItemGroup>

@@ -1,12 +1,9 @@
 ﻿using AutoMapper;
 using Nultien.TheShop.Common.DTO;
+using Nultien.TheShop.Common.Helpers;
 using Nultien.TheShop.Interfaces.Repository;
 using Nultien.TheShop.Interfaces.Services;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Nultien.TheShop.Impl.Services
 {
@@ -22,11 +19,33 @@ namespace Nultien.TheShop.Impl.Services
             _articleRepository = articleRepository;
         }
 
+        public ArticleViewModel Add(ArticleViewModel article)
+        {
+            Validation.Create()
+                .NotNullOrEmpty(article, "Article should not be null")
+                .IsTrue(article.ID == 0, "Article ID should be zero")
+                .NotNullOrEmpty(article.Name_of_article, "Article name should not be null or empty");
+
+            throw new System.NotImplementedException();
+        }
+
         public ArticleViewModel GetById(int id)
         {
+            Validation.Create()
+                .IsGreaterThan(id, 0, "Id should be greater than zero");
+
             var article = _articleRepository.GetById(id);
 
             return _mapper.Map<ArticleViewModel>(article);
+        }
+
+        public List<ArticleViewModel> Search(ArticleSearchParams filter)
+        {
+            Validation.Create()
+                .NotNullOrDefault(filter, "Filter should not be null")
+                .IsTrue(() => filter.MaxPrice >= filter.MinPrice, "Max price should be greater or equal than min price");
+
+            throw new System.NotImplementedException();
         }
     }
 }
