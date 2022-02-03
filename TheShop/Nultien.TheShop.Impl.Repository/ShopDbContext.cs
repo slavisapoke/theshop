@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Nultien.TheShop.DataDomain;
-using System.Linq;
 
 namespace Nultien.TheShop.Impl.Repository
 {

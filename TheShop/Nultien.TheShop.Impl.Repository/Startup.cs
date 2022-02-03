@@ -8,7 +8,7 @@ namespace Nultien.TheShop.Interfaces.Repository
     {
         public static void Configure(IServiceCollection svcCollection)
         {
-            svcCollection.AddDbContext<ShopDbContext>(options => options.UseInMemoryDatabase("ShopTestDbContext"));
+            svcCollection.AddDbContext<ShopDbContext>(options => options.UseInMemoryDatabase("ShopDatabase"));
             svcCollection.AddSingleton<IArticleRepository, ArticleRepository>();
             svcCollection.AddSingleton<ISupplierRepository, SupplierRepository>();
             svcCollection.AddSingleton<ISupplierArticleRepository, SupplierArticleRepository>();

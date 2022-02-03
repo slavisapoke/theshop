@@ -5,7 +5,6 @@ namespace Nultien.TheShop.DataDomain
 {
     public class Article : DbEntity
 	{
-		public string EAN { get; set; }
 		public string Name { get; set; }
 		public int Price { get; set; }
 		public bool IsSold { get; set; }
