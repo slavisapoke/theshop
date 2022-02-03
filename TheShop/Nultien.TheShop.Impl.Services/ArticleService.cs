@@ -37,20 +37,12 @@ namespace Nultien.TheShop.Impl.Services
         public ArticleViewModel GetById(int id)
         {
             Validation.Create()
-                .IsGreaterThan(id, 0, "Id should be greater than zero");
+                .IsGreaterThan(id, 0, "Id should be greater than zero")
+                .Execute();
 
             var article = _articleRepository.GetById(id);
 
             return _mapper.Map<ArticleViewModel>(article);
-        }
-
-        public List<ArticleViewModel> Search(ArticleSearchParams filter)
-        {
-            Validation.Create()
-                .NotNullOrDefault(filter, "Filter should not be null")
-                .IsTrue(() => filter.MaxPrice >= filter.MinPrice, "Max price should be greater or equal than min price");
-
-            throw new System.NotImplementedException();
         }
     }
 }

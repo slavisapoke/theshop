@@ -7,6 +7,5 @@ namespace Nultien.TheShop.Interfaces.Services
     {
         ArticleViewModel GetById(int id);
         int Add(ArticleViewModel article);
-        List<ArticleViewModel> Search(ArticleSearchParams filter);
     }
 }
