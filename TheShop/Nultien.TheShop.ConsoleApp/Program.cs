@@ -1,7 +1,15 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
+using Nultien.TheShop.Common.DTO;
+using Nultien.TheShop.Common.Exceptions.Validation;
+using Nultien.TheShop.DataDomain;
+using Nultien.TheShop.Impl.Repository;
+using Nultien.TheShop.Interfaces.Repository;
 using Nultien.TheShop.Interfaces.Services;
 using System;
+using System.Linq;
 
 namespace Nultien.TheShop.ConsoleApp
 {
@@ -17,12 +25,7 @@ namespace Nultien.TheShop.ConsoleApp
             _logger = serviceProvider.GetService<ILogger<Program>>();
             _logger.LogInformation("TheShop is open!");
 
-            System.AppDomain.CurrentDomain.UnhandledException += ExceptionHandler;
-
-
-            var shopService = serviceProvider.GetService<IShopService>();
-
-            var article = shopService.GetById(1);
+            AppDomain.CurrentDomain.UnhandledException += ExceptionHandler;
         }
 
         /// <summary>

@@ -24,7 +24,7 @@ namespace Nultien.TheShop.Impl.Services
 
         public ArticleViewModel GetById(int id)
         {
-            throw new NotImplementedException();
+            return _articleService.GetById(id);
         }
 
         public void OrderAndSellArticle(int id, int maxExpectedPrice, int buyerId)

@@ -2,8 +2,8 @@
 {
     public class Buyer
     {
-        public int ID { get; set; }
-        public string Name { get; set; }
-        public string Lastname { get; set; }
+        public int ID { get; init; }
+        public string Name { get; init; }
+        public string Lastname { get; init; }
     }
 }

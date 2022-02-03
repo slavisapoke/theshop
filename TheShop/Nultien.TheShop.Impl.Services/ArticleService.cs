@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Nultien.TheShop.Common.DTO;
 using Nultien.TheShop.Common.Helpers;
+using Nultien.TheShop.DataDomain;
 using Nultien.TheShop.Interfaces.Repository;
 using Nultien.TheShop.Interfaces.Services;
 using System.Collections.Generic;
@@ -19,14 +20,18 @@ namespace Nultien.TheShop.Impl.Services
             _articleRepository = articleRepository;
         }
 
-        public ArticleViewModel Add(ArticleViewModel article)
+        public int Add(ArticleViewModel article)
         {
             Validation.Create()
                 .NotNullOrEmpty(article, "Article should not be null")
-                .IsTrue(article.ID == 0, "Article ID should be zero")
-                .NotNullOrEmpty(article.Name_of_article, "Article name should not be null or empty");
+                .IsTrue(article?.ID == 0, "Article ID should be zero")
+                .NotNullOrEmpty(article?.Name_of_article, "Article name should not be null or empty")
+                .Execute();
 
-            throw new System.NotImplementedException();
+            var articleDb = _mapper.Map<Article>(article);
+            articleDb = _articleRepository.Add(articleDb);
+
+            return articleDb.ID;
         }
 
         public ArticleViewModel GetById(int id)

@@ -6,7 +6,7 @@ namespace Nultien.TheShop.Interfaces.Services
     public interface IArticleService
     {
         ArticleViewModel GetById(int id);
-        ArticleViewModel Add(ArticleViewModel article);
+        int Add(ArticleViewModel article);
         List<ArticleViewModel> Search(ArticleSearchParams filter);
     }
 }

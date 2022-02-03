@@ -1,20 +1,41 @@
-﻿using Nultien.TheShop.Common.DTO.Enums;
-using System;
+﻿using Nultien.TheShop.Common.DTO;
+using Nultien.TheShop.DataDomain;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Nultien.TheShop.Interfaces.Repository
 {
     public interface ISupplierArticleRepository
     {
         /// <summary>
-        /// Updates state of the given article for the given supplier
+        /// Update/insert supplier stocks for the given article
+        /// </summary>
+        /// <param name="stock"></param> 
+        SupplierStock Upsert(SupplierStock stock);
+
+        /// <summary>
+        /// Gets stock for article for the supplier
         /// </summary>
         /// <param name="articleId"></param>
         /// <param name="supplierId"></param>
-        /// <param name="state"></param>
-        void UpdateStock(int articleId, int supplierId, ArticleStockState state);
+        /// <returns></returns>
+        SupplierStock Get(int articleId, int supplierId);
+
+        /// <summary>
+        /// Deletes stock record by the given id
+        /// </summary>
+        /// <param name="stockId"></param>
+        void Delete(int stockId);
+
+        /// <summary>
+        /// Searches for articles in supplier stocks by the given parameters
+        /// </summary>
+        /// <param name="filter"></param>
+        /// <returns></returns>
+        IEnumerable<ArticleSearchViewModel> Search( 
+            string name, 
+            int maxPrice,
+            int minPrice,
+            int pageIndex,
+            int pageSize);
     }
 }

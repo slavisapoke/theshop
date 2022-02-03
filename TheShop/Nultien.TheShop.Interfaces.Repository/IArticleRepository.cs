@@ -1,13 +1,10 @@
-﻿using Nultien.TheShop.Common.DTO;
-using Nultien.TheShop.DataDomain;
-using System.Collections.Generic;
+﻿using Nultien.TheShop.DataDomain;
 
 namespace Nultien.TheShop.Interfaces.Repository
 {
     public interface IArticleRepository
     {
         Article GetById(int id);
-        Article Add(Article article);
-        List<Article> Search(ArticleSearchParams filter);
+        Article Add(Article article); 
     }
 }

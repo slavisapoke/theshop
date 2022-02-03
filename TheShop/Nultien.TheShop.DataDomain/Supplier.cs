@@ -1,8 +1,10 @@
-﻿namespace Nultien.TheShop.DataDomain
+﻿using System.Collections.Generic;
+
+namespace Nultien.TheShop.DataDomain
 {
-    public class Supplier
+    public class Supplier : DbEntity
     {
-        public int ID { get; set; }
         public string Name { get; set; }
-	}
+        public ICollection<SupplierStock> SupplierStocks { get; set; }
+    }
 }

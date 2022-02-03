@@ -1,33 +1,39 @@
 ﻿using Nultien.TheShop.Common.DTO;
+using Nultien.TheShop.Common.Exceptions.Entity;
 using Nultien.TheShop.DataDomain;
 using Nultien.TheShop.Interfaces.Repository;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Nultien.TheShop.Impl.Repository
 {
     public class ArticleRepository : IArticleRepository
     {
+        private readonly ShopDbContext _context;
+
+        public ArticleRepository(ShopDbContext context)
+        {
+            _context = context;
+        }
         public Article Add(Article article)
         {
-            throw new NotImplementedException();
+            _context.Articles.Add(article);
+            _context.SaveChanges();
+
+            return article;
         }
 
         public Article GetById(int id)
         {
-            return new Article
-            {
-                ID = 1, 
-                BuyerUserId = null, 
-                IsSold = false, 
-                Name = "Test Article",
-                Price = 1000
-            };
-        }
+            var article = _context.Articles.FirstOrDefault(a => a.ID == id);
 
-        public List<Article> Search(ArticleSearchParams filter)
-        {
-            throw new NotImplementedException();
-        }
+            if(article == null)
+            {
+                throw new EntityReadException("Cannot find entity", typeof(Article).FullName, id);
+            }
+
+            return article;
+        } 
     }
 }
