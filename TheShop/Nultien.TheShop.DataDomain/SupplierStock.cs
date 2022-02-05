@@ -1,5 +1,4 @@
-﻿using Nultien.TheShop.Common.DTO.Enums;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace Nultien.TheShop.DataDomain
 {

@@ -68,19 +68,23 @@ namespace Nultien.TheShop.Impl.Repository
             return existingStock;
         }
 
-        public IEnumerable<ArticleSearchViewModel> Search(
+        public List<ArticleSearchViewModel> Search(
+            int? articleId,
             string name,
             int maxPrice,
             int minPrice,
+            bool? inStock,
             int pageIndex,
             int pageSize)
         {
             var result = from s in _context.SupplierStocks
                          where
+                            (!articleId.HasValue || articleId.Value <= 0 || s.ArticleID == articleId) &&
                             (string.IsNullOrEmpty(name) ||
                                 s.Article.Name.ToLowerInvariant().Contains(name.ToLowerInvariant())) &&
                             (maxPrice <= 0 || s.Price <= maxPrice) &&
-                            (minPrice <= 0 || s.Price >= minPrice)
+                            (minPrice <= 0 || s.Price >= minPrice) &&
+                            (!inStock.HasValue || s.Quantity > 0)
                          select ArticleSearchViewModel.Create(
                              s.ID,
                              s.ArticleID, 

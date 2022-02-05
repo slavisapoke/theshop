@@ -1,6 +1,8 @@
-﻿using Nultien.TheShop.Common.DTO;
-using Nultien.TheShop.Common.DTO.Enums;
+﻿using AutoMapper;
+using Nultien.TheShop.Common.DTO;
 using Nultien.TheShop.Common.Helpers;
+using Nultien.TheShop.DataDomain;
+using Nultien.TheShop.Interfaces.Repository;
 using Nultien.TheShop.Interfaces.Services;
 using System;
 using System.Collections.Generic;
@@ -12,39 +14,42 @@ namespace Nultien.TheShop.Impl.Services
 {
     public class SupplierService : ISupplierService
     {
-        public void Add(SupplierViewModel supplier)
+        private readonly IMapper _mapper;
+        private readonly ISupplierRepository _supplierRepository;
+        private readonly ISupplierArticleRepository _stockRepository;
+
+        public SupplierService(IMapper mapper, 
+            ISupplierRepository supplierRepository,
+            ISupplierArticleRepository stockRepository)
+        {
+            _mapper = mapper;
+            _supplierRepository = supplierRepository;
+            _stockRepository = stockRepository;
+        }
+
+        public int Add(SupplierViewModel supplier)
         {
             Validation.Create()
                    .NotNullOrEmpty(supplier, "Supplier should not be null")
                    .IsTrue(supplier.ID == 0, "Supplier ID should be zero")
-                   .NotNullOrEmpty(supplier.Name, "Supplier name should not be null or empty");
+                   .NotNullOrEmpty(supplier.Name, "Supplier name should not be null or empty")
+                   .Execute();
 
-            throw new NotImplementedException();
-        }
 
-        public IEnumerable<SupplierViewModel> GetByArticleInStock(int articleId)
-        {
-            Validation.Create()
-                .IsGreaterThan(articleId, 0, "Article ID should be greater than zero");
+            var supplierDb = _mapper.Map<Supplier>(supplier);
+            supplierDb = _supplierRepository.Add(supplierDb);
 
-            throw new NotImplementedException();
+            return supplierDb.ID;
         }
 
         public SupplierViewModel GetById(int id)
         {
-            Validation.Create()
+            Validation.Create(false)
                 .IsGreaterThan(id, 0, "Supplier ID should be greater than zero");
 
-            throw new NotImplementedException();
-        }
+            var suppDb = _supplierRepository.GetById(id); 
 
-        public void UpdateStock(int articleId, int supplierId, ArticleStockState state)
-        {
-            Validation.Create()
-                .IsGreaterThan(articleId, 0, "Article ID should be greater than zero")
-                .IsGreaterThan(supplierId, 0, "Supplier ID should be greater than zero");
-
-            throw new NotImplementedException();
+            return _mapper.Map<SupplierViewModel>(suppDb);
         }
     }
 }

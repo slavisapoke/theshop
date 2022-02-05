@@ -31,10 +31,12 @@ namespace Nultien.TheShop.Interfaces.Repository
         /// </summary>
         /// <param name="filter"></param>
         /// <returns></returns>
-        IEnumerable<ArticleSearchViewModel> Search( 
+        List<ArticleSearchViewModel> Search( 
+            int? articleId,
             string name, 
             int maxPrice,
             int minPrice,
+            bool? inStock,
             int pageIndex,
             int pageSize);
     }

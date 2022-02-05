@@ -13,13 +13,6 @@ namespace Nultien.TheShop.Interfaces.Services
         ArticleViewModel GetById(int id);
 
         /// <summary>
-        /// Possible additional method for search articles
-        /// </summary>
-        /// <param name="filter">Search filter</param>
-        /// <returns></returns>
-        IEnumerable<ArticleViewModel> SearchArticles(ArticleSearchParams filter);
-
-        /// <summary>
         /// Sells an article by the given id to a buyer with the given id. 
         /// This API is a part of larger enterprise system (by the assignment) so not gonna change API, 
         /// or not going to get deeper behind the idea of having maxExpectedPrice in this stage of shopping flow

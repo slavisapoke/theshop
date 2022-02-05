@@ -3,6 +3,7 @@
     public class ArticleSearchParams
     {
         public string Name { get; init; }
+        public bool? InStock { get; set; }
         public int MaxPrice { get; init; }
         public int MinPrice { get; init; }
         public int PageIndex { get; init; }
